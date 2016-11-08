@@ -1,0 +1,29 @@
+{
+  "name": "thoughterhw",
+  "version": "1.0.0",
+  "description": "Thoughter is micro blogging website. One can share a thought on this platform.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syedali575/thoughterhw.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syedali575/thoughterhw/issues"
+  },
+  "homepage": "https://github.com/syedali575/thoughterhw#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
