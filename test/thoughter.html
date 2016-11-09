@@ -13,30 +13,30 @@
 
     <main id="mocha"></main>
 
-  </body>
+
 
   <!-- any libraries we need --->
   <script src="../../node_modules/mocha/mocha.js"> </script>
   <script src="../../node_modules/chai/chai.js"> </script>
-
-
-  <!-- Source JS code (What we are testing)-->
-  <!-- <script src="../src/js/calc.js"></script> -->
+  <script src="../node_modules/jquery/dist/jquery.js"></script>
 
   <!--- Mocha setup -->
   <script>
   mocha.setup("bdd");
   </script>
+
+<!-- Our source code -->
+<script src="../src/js/switching.js"></script>
+<script src="../src/js/data.js"></script>
+
   <!-- Our Test (Where we see our test result) -->
-  <script src="specs/calc.spec.js"></script>
+  <script src="../test/thoughter.html"></script>
+
   <!-- Run Mocha -->
   <script>
     mocha.run();
   </script>
 
-
-
-
-
+  </body>
 
 </html>

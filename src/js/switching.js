@@ -3,20 +3,27 @@
 
 window.thoughter = window.thoughter || {};
 
-  console.log("I am in the Thoughter HTML");
+  // console.log("I am in the Thoughter HTML");
+
+// To switch between views of recent thoughts and new thought section.
 
 
-  $(".recentSection").click(function hideNew(event){
-    $("#new").hide();
-    $("#recent").show();
+  $("main").hide();
+
+  $(window).on("hashchange" ,function currentView(event){
+
+    var theElement = $(window.location.hash);
+
+    console.log(theElement);
+    $("main").hide();
+    theElement.show();
+
+    $("nav li").removeClass("active");
+    $('[href="' + window.location.hash + '"]').addClass("active");
+
   });
 
-  $(".newSection").click(function hideRecent(event){
-    $("#recent").hide();
-    $("#new").show();
-  });
+  // what view should i start at?
 
-
-
-// iife closing
+// End of iife
   })();
