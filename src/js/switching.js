@@ -6,12 +6,14 @@ window.thoughter = window.thoughter || {};
   console.log("I am in the Thoughter HTML");
 
 
-  $(".recentSection").on("submit", function hideNew(event){
+  $(".recentSection").click(function hideNew(event){
     $("#new").hide();
+    $("#recent").show();
   });
 
-  $(".newSection").on("submit", function hideRecent(event){
+  $(".newSection").click(function hideRecent(event){
     $("#recent").hide();
+    $("#new").show();
   });
 
 
