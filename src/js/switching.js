@@ -14,7 +14,6 @@ window.thoughter = window.thoughter || {};
 
     var theElement = $(window.location.hash);
 
-    console.log(theElement);
     $("main").hide();
     theElement.show();
 
