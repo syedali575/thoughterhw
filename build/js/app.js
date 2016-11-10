@@ -56,7 +56,8 @@
         })
         .done(function handleSuccess(data){
           console.log("It worked", data);
-          window.thoughter.showRecentThoughts(data)
+          console.log(window.thoughter.createNewThought);
+          window.thoughter.showRecentThoughts(data);
         })
         .fail(function handleFailure(xhr){
           console.log("Unable to communicate", xhr);

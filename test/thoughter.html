@@ -4,40 +4,44 @@
     <meta charset="utf-8">
     <title>Thoughter Test</title>
 
-    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css" type="text/css">
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" type="text/css">
 
   </head>
 
 
   <body>
 
-    <main id="mocha"></main>
+    <div id="mocha"></div>
 
 
 
-  <!-- any libraries we need --->
-  <script src="../../node_modules/mocha/mocha.js"> </script>
-  <script src="../../node_modules/chai/chai.js"> </script>
-  <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <!-- any libraries we need --->
+    <script src="../node_modules/mocha/mocha.js"> </script>
+    <script src="../node_modules/chai/chai.js"> </script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
 
-  <!--- Mocha setup -->
-  <script>
-  mocha.setup("bdd");
-  </script>
+    <!--- Mocha setup -->
+    <script>
+    mocha.setup("bdd");
+    </script>
 
-<!-- Our source code -->
-<script src="../src/js/switching.js"></script>
-<script src="../src/js/data.js"></script>
+    <!-- Our source code -->
+    <script src="../src/js/data.js"></script>
+    <script src="../src/js/new_thought_ui.js"></script>
+    <script src="../src/js/recent_thoughts_ui.js"></script>
+    <script src="../src/js/switching.js"></script>
 
-  <!-- Our Test (Where we see our test result) -->
-  <script src="../test/specs/thoughter.html"></script>
 
-  <!-- Run Mocha -->
-  <script>
-  if(window.navigator.userAgent.indexof('PhantomsJS') < 0) {
-    mocha.run();
-  }
-  </script>
+    <!-- Our Test (Where we see our test result) -->
+    <script src="../test/specs/thoughter.data.spec.js"></script>
+    <script src="../test/specs/thoughter.switching.spec.js"></script>
+
+    <!-- Run Mocha -->
+    <script>
+    // if(window.navigator.userAgent.indexof('PhantomsJS') < 0) {
+      mocha.run();
+    // }
+    </script>
 
 
 

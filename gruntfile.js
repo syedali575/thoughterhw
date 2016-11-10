@@ -1,4 +1,5 @@
 module.exports = function(grunt){
+
   'use strrict';
 
   grunt.initConfig({
@@ -25,30 +26,31 @@ module.exports = function(grunt){
               src: ['test/specs/**/*.js']
             }
           }
-      },
+    },
 
-      sass:{ /// task name
+
+    sass:{ /// task name
           allStyles: { // target name
             files: {
                   'build/css/styles.css': 'src/sass/main.scss'
             }
           }
+    },
 
-      },
 
-      copy: {
-          html: {
-            files: [
-                {
-                  expand: true,
-                  cwd: 'src',
-                  src: ['index.html'],
-                  dest:  'build/'
-                }
-            ]
-          }
+    copy: {
+        html: {
+          files: [
+              {
+                expand: true,
+                cwd: 'src',
+                src: ['index.html'],
+                dest:  'build/'
+              }
+          ]
+        }
 
-      },
+    },
 
       vendorjs: {
         files: [
@@ -96,14 +98,16 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt/mocha');
+  grunt.loadNpmTasks('grunt-mocha');
 
 
 // you can add more task to array
 //
-  // grunt.registerTask('test', ['jshint', 'connect,'mocha']);
-  // I need to add test to default
-  //
+//
+//  // I need to add test to default
+
+  grunt.registerTask('test', ['jshint', 'connect,'mocha']);
+
   grunt.registerTask('default', ['clean','sass','copy', 'concat']);
 
 };
