@@ -69,3 +69,83 @@
 
 // End of iife
 })();
+
+(function(){
+  "use strict";
+  window.thoughter = window.thoughter || {};
+
+
+
+  $(".share").on("click", function newThoughts(event){
+    event.preventDefault();
+    /// Acquiring new thought from form
+    var thought =$(".incoming").val();
+    console.log(thought);
+    window.thoughter.createNewThought(thought);
+  });
+
+
+
+
+// End of iife
+})();
+
+(function(){
+  "use strict";
+  window.thoughter = window.thoughter || {};
+  window.thoughter.showRecentThoughts = showRecentThoughts;
+
+
+  console.log("I am clicking recent thoughts");
+
+  $(".recentSection").on("click", function shareThoughts(event){
+    window.thoughter.recentThought();
+  });
+
+
+
+  function showRecentThoughts(list_Thoughts) {
+    list_Thoughts.forEach(function loopArray(thought){
+      console.log(thought);
+      $("#recent ul")
+      .append(
+        '<li>' +
+        'Thought:' + thought.content +
+        '</li>'
+      );
+    });
+  }
+
+
+
+//End of iife
+})();
+
+(function(){
+"use strict";
+
+window.thoughter = window.thoughter || {};
+
+  // console.log("I am in the Thoughter HTML");
+
+// To switch between views of recent thoughts and new thought section.
+
+
+  $("main").hide();
+
+  $(window).on("hashchange" ,function currentView(event){
+
+    var theElement = $(window.location.hash);
+
+    $("main").hide();
+    theElement.show();
+
+    $("nav li").removeClass("active");
+    $('[href="' + window.location.hash + '"]').addClass("active");
+
+  });
+
+  // what view should i start at?
+
+// End of iife
+  })();

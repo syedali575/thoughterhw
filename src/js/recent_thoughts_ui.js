@@ -21,7 +21,7 @@
         'Thought:' + thought.content +
         '</li>'
       );
-    })
+    });
   }
 
 

@@ -34,8 +34,12 @@
 
   <!-- Run Mocha -->
   <script>
+  if(window.navigator.userAgent.indexof('PhantomsJS') < 0) {
     mocha.run();
+  }
   </script>
+
+
 
   </body>
 
