@@ -11,17 +11,28 @@
   });
 
 
-
+  /**
+   * Appends incoming recent thoughts to recent thought section.
+   * @param  {Array} list_Thoughts  An array of thought Objects
+   * @return {void}
+   */
   function showRecentThoughts(list_Thoughts) {
-    list_Thoughts.forEach(function loopArray(thought){
-      console.log(thought);
-      $("#recent ul")
-      .append(
-        '<li>' +
-        'Thought:' + thought.content +
-        '</li>'
-      );
-    });
+    // what do i do if i get NO input?
+    if(list_Thoughts === null) {
+      return;
+    }
+    else {
+
+        list_Thoughts.forEach(function loopArray(thought){
+          console.log(thought);
+          $("#recent ul")
+          .append(
+            '<li>' +
+            'Thought:' + thought.content +
+            '</li>'
+          );
+        });
+    }
   }
 
 

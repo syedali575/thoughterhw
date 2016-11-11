@@ -20,7 +20,7 @@
    */
 
   function createNewThought(newThought) {
-      $.ajax({
+      return $.ajax({
         url:"https://thoughter.herokuapp.com/api/Thoughts",
         method: "POST",
         data: JSON.stringify({"content":newThought}),
@@ -56,7 +56,7 @@
         })
         .done(function handleSuccess(data){
           console.log("It worked", data);
-          console.log(window.thoughter.createNewThought);
+          // console.log(window.thoughter.createNewThought);
           window.thoughter.showRecentThoughts(data);
         })
         .fail(function handleFailure(xhr){

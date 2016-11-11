@@ -106,7 +106,7 @@ module.exports = function(grunt){
 //
 //  // I need to add test to default
 
-  grunt.registerTask('test', ['jshint', 'connect,'mocha']);
+  grunt.registerTask('test', ['connect', 'mocha']); // add jshint back
 
   grunt.registerTask('default', ['clean','sass','copy', 'concat']);
 
