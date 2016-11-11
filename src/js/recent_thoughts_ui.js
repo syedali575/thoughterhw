@@ -18,7 +18,7 @@
    */
   function showRecentThoughts(list_Thoughts) {
     // what do i do if i get NO input?
-    if(list_Thoughts === null) {
+    if(!Array.isArray(list_Thoughts)) {
       return;
     }
     else {
