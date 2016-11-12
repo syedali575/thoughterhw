@@ -22,7 +22,7 @@
       return;
     }
     else {
-
+        list_Thoughts.reverse();
         list_Thoughts.forEach(function loopArray(thought){
           console.log(thought);
           $("#recent ul")
