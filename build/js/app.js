@@ -20,7 +20,7 @@
    */
 
   function createNewThought(newThought) {
-      $.ajax({
+      return $.ajax({
         url:"https://thoughter.herokuapp.com/api/Thoughts",
         method: "POST",
         data: JSON.stringify({"content":newThought}),
@@ -56,7 +56,7 @@
         })
         .done(function handleSuccess(data){
           console.log("It worked", data);
-          console.log(window.thoughter.createNewThought);
+          // console.log(window.thoughter.createNewThought);
           window.thoughter.showRecentThoughts(data);
         })
         .fail(function handleFailure(xhr){
@@ -104,17 +104,28 @@
   });
 
 
-
+  /**
+   * Appends incoming recent thoughts to recent thought section.
+   * @param  {Array} list_Thoughts  An array of thought Objects
+   * @return {void}
+   */
   function showRecentThoughts(list_Thoughts) {
-    list_Thoughts.forEach(function loopArray(thought){
-      console.log(thought);
-      $("#recent ul")
-      .append(
-        '<li>' +
-        'Thought:' + thought.content +
-        '</li>'
-      );
-    });
+    // what do i do if i get NO input?
+    if(!Array.isArray(list_Thoughts)) {
+      return;
+    }
+    else {
+
+        list_Thoughts.forEach(function loopArray(thought){
+          console.log(thought);
+          $("#recent ul")
+          .append(
+            '<li>' +
+            'Thought:' + thought.content +
+            '</li>'
+          );
+        });
+    }
   }
 
 

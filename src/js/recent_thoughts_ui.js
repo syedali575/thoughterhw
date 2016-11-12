@@ -27,8 +27,9 @@
           console.log(thought);
           $("#recent ul")
           .append(
-            '<li>' +
-            'Thought:' + thought.content +
+            '<li class="alert alert-success">' +
+            'Post Time: ' + thought.createTime +
+            '   Thought: ' + thought.content +
             '</li>'
           );
         });
