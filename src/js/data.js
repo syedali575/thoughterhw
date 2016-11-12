@@ -58,6 +58,7 @@
           console.log("It worked", data);
           // console.log(window.thoughter.createNewThought);
           window.thoughter.showRecentThoughts(data);
+          
         })
         .fail(function handleFailure(xhr){
           console.log("Unable to communicate", xhr);
