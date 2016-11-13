@@ -47,13 +47,14 @@
 
 
     function recentThought() {
-        return $.ajax({
-          url:"https://thoughter.herokuapp.com/api/Thoughts",
-          method: "GET",
-          data: {"limit": 3, "order": 'DESC'},
-          headers:{
-            "Content-Type": "application/json"
-          }
+    return $.ajax({
+            url: 'https://thoughter.herokuapp.com/api/Thoughts',
+            method: 'GET',
+            dataType: 'json',
+            data: {
+              filter: {'limit': 5, 'order': 'createTime DESC'
+              }
+            },
         })
         .done(function handleSuccess(data){
           console.log("It worked", data);
