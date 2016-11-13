@@ -22,8 +22,6 @@
       return;
     }
     else {
-      // Reversing order of array
-      // list_Thoughts.reverse();
       // Looping through array
       list_Thoughts.forEach(function loopArray(thought){
         console.log(thought);

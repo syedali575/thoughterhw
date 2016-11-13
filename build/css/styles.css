@@ -1,4 +1,13 @@
 main#recent h3 {
-  font-size: 5em; }
+  font-size: 1.2em; }
+main#recent ul {
+  padding-left: 0px; }
+main#recent ul li {
+  list-style: none; }
+main#recent .panel-heading {
+  font-size: .7em;
+  line-height: 3px; }
+main#recent .panel-body {
+  line-height: 5px; }
 
 /*# sourceMappingURL=styles.css.map */

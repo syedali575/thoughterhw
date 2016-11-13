@@ -13,59 +13,59 @@
 
 
   /**
-   *Receives string of new thought from new_thought_ui
-   *and makes an ajax call to post new thought.
-   *@param {string} newThought that user like to share
-   *@return {Object} content or provides fail message.
-   */
+  *Receives string of new thought from new_thought_ui
+  *and makes an ajax call to post new thought.
+  *@param {string} newThought that user like to share
+  *@return {Object} content or provides fail message.
+  */
 
   function createNewThought(newThought) {
-      return $.ajax({
-        url:"https://thoughter.herokuapp.com/api/Thoughts",
-        method: "POST",
-        data: JSON.stringify({"content":newThought}),
-        headers:{
-          "Content-Type": "application/json"
-        }
-      })
-      .done(function handleSuccess(data){
-        console.log("It worked", data);
-      })
-      .fail(function handleFailure(xhr){
-        console.log("Unable to communicate", xhr);
-      });
-    }
-
-
-
-    /**
-     *This function makes an ajax call to retrieve
-     *all recent thoughts posted
-     *@param {} no argument required to execute this function
-     *@return {PromiseObjects} content Ajax call promise.
-     */
-
-
-    function recentThought() {
     return $.ajax({
-            url: 'https://thoughter.herokuapp.com/api/Thoughts',
-            method: 'GET',
-            dataType: 'json',
-            data: {
-              filter: {'limit': 5, 'order': 'createTime DESC'
-              }
-            },
-        })
-        .done(function handleSuccess(data){
-          console.log("It worked", data);
-          // console.log(window.thoughter.createNewThought);
-          window.thoughter.showRecentThoughts(data);
-
-        })
-        .fail(function handleFailure(xhr){
-          console.log("Unable to communicate", xhr);
-        });
+      url:"https://thoughter.herokuapp.com/api/Thoughts",
+      method: "POST",
+      data: JSON.stringify({"content":newThought}),
+      headers:{
+        "Content-Type": "application/json"
       }
+    })
+    .done(function handleSuccess(data){
+      console.log("It worked", data);
+    })
+    .fail(function handleFailure(xhr){
+      console.log("Unable to communicate", xhr);
+    });
+  }
+
+
+
+  /**
+  *This function makes an ajax call to retrieve
+  *all recent thoughts posted
+  *@param {} no argument required to execute this function
+  *@return {PromiseObjects} content Ajax call promise.
+  */
+
+
+  function recentThought() {
+    return $.ajax({
+      url: "https://thoughter.herokuapp.com/api/Thoughts",
+      method: "GET",
+      dataType: "json",
+      data: {
+        filter: {"limit": 5, "order": "createTime DESC"
+      }
+    },
+  })
+  .done(function handleSuccess(data){
+    console.log("It worked", data);
+    // console.log(window.thoughter.createNewThought);
+    window.thoughter.showRecentThoughts(data);
+
+  })
+  .fail(function handleFailure(xhr){
+    console.log("Unable to communicate", xhr);
+  });
+}
 
 
 
@@ -91,7 +91,9 @@
 
     $("main").show();
     recent.hide();
-    
+
+
+
   });
 
 
@@ -114,65 +116,48 @@
 
 
   /**
-   * Appends incoming recent thoughts to recent thought section.
-   * @param  {Array} list_Thoughts  An array of thought Objects
-   * @return {void}
-   */
+  * Appends incoming recent thoughts to recent thought section.
+  * @param  {Array} list_Thoughts  An array of thought Objects
+  * @return {void}
+  */
   function showRecentThoughts(list_Thoughts) {
     // what do i do if i get NO input?
     if(!Array.isArray(list_Thoughts)) {
       return;
     }
     else {
-        // Reversing order of array
-        // list_Thoughts.reverse();
-        // Looping through array
-        list_Thoughts.forEach(function loopArray(thought){
-          console.log(thought);
+      // Looping through array
+      list_Thoughts.forEach(function loopArray(thought){
+        console.log(thought);
 
-          $("#recent ul")
-          .append(
-            '<li class="alert alert-success">' +
-            'Post Time: ' + thought.createTime +
-            '   Thought: ' + thought.content +
-            '</li>'
-          );
+        $("#recent ul")
+        .append(
+          '<li class="panel-heading">' +
+          'Post Time: ' + thought.createTime +
+          '</li>' +
+          '<li class="panel-body">' +
+          'Thought: ' + thought.content +
+          '</li>'
+        );
 
-          // .append(
-          //   '<li class="panel panel-heading">' +
-          //   'Post Time: ' + thought.createTime +
-          //   '</li>' +
-          //   '<li class="panel-body">' +
-          //   '   Thought: ' + thought.content +
-          //   '</li>'
-          // );
-
-
-
-
-
-
-
-
-
-          recent === window.location.hash;
-        });
+        recent === window.location.hash;
+      });
     }
   }
 
 
 
-//End of iife
+  //End of iife
 })();
 
 (function(){
-"use strict";
+  "use strict";
 
-window.thoughter = window.thoughter || {};
+  window.thoughter = window.thoughter || {};
 
   // console.log("I am in the Thoughter HTML");
 
-// To switch between views of recent thoughts and new thought section.
+  // To switch between views of recent thoughts and new thought section.
 
 
   $("main").hide();
@@ -191,5 +176,5 @@ window.thoughter = window.thoughter || {};
 
   // what view should i start at?
 
-// End of iife
-  })();
+  // End of iife
+})();
