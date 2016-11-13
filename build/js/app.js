@@ -58,6 +58,7 @@
           console.log("It worked", data);
           // console.log(window.thoughter.createNewThought);
           window.thoughter.showRecentThoughts(data);
+          
         })
         .fail(function handleFailure(xhr){
           console.log("Unable to communicate", xhr);
@@ -77,12 +78,18 @@
 
 
 
-  $(".share").on("click", function newThoughts(event){
+  $(".yellow").on("submit", function newThoughts(event){
     event.preventDefault();
     /// Acquiring new thought from form
     var thought =$(".incoming").val();
     console.log(thought);
     window.thoughter.createNewThought(thought);
+
+    var recent = $(window.location.hash);
+
+    $("main").show();
+    recent.hide();
+    
   });
 
 
@@ -115,15 +122,38 @@
       return;
     }
     else {
-
+        // Reversing order of array
+        list_Thoughts.reverse();
+        // Looping through array
         list_Thoughts.forEach(function loopArray(thought){
           console.log(thought);
+
           $("#recent ul")
           .append(
-            '<li>' +
-            'Thought:' + thought.content +
+            '<li class="alert alert-success">' +
+            'Post Time: ' + thought.createTime +
+            '   Thought: ' + thought.content +
             '</li>'
           );
+
+          // .append(
+          //   '<li class="panel panel-heading">' +
+          //   'Post Time: ' + thought.createTime +
+          //   '</li>' +
+          //   '<li class="panel-body">' +
+          //   '   Thought: ' + thought.content +
+          //   '</li>'
+          // );
+
+
+
+
+
+
+
+
+
+          recent === window.location.hash;
         });
     }
   }

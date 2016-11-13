@@ -23,7 +23,7 @@
     }
     else {
         // Reversing order of array
-        list_Thoughts.reverse();
+        // list_Thoughts.reverse();
         // Looping through array
         list_Thoughts.forEach(function loopArray(thought){
           console.log(thought);
@@ -35,6 +35,24 @@
             '   Thought: ' + thought.content +
             '</li>'
           );
+
+          // .append(
+          //   '<li class="panel panel-heading">' +
+          //   'Post Time: ' + thought.createTime +
+          //   '</li>' +
+          //   '<li class="panel-body">' +
+          //   '   Thought: ' + thought.content +
+          //   '</li>'
+          // );
+
+
+
+
+
+
+
+
+
           recent === window.location.hash;
         });
     }

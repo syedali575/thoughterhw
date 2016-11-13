@@ -50,6 +50,7 @@
         return $.ajax({
           url:"https://thoughter.herokuapp.com/api/Thoughts",
           method: "GET",
+          data: {"limit": 3, "order": 'DESC'},
           headers:{
             "Content-Type": "application/json"
           }
@@ -58,7 +59,7 @@
           console.log("It worked", data);
           // console.log(window.thoughter.createNewThought);
           window.thoughter.showRecentThoughts(data);
-          
+
         })
         .fail(function handleFailure(xhr){
           console.log("Unable to communicate", xhr);
