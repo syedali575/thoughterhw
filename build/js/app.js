@@ -47,18 +47,20 @@
 
 
     function recentThought() {
-        return $.ajax({
-          url:"https://thoughter.herokuapp.com/api/Thoughts",
-          method: "GET",
-          headers:{
-            "Content-Type": "application/json"
-          }
+    return $.ajax({
+            url: 'https://thoughter.herokuapp.com/api/Thoughts',
+            method: 'GET',
+            dataType: 'json',
+            data: {
+              filter: {'limit': 5, 'order': 'createTime DESC'
+              }
+            },
         })
         .done(function handleSuccess(data){
           console.log("It worked", data);
           // console.log(window.thoughter.createNewThought);
           window.thoughter.showRecentThoughts(data);
-          
+
         })
         .fail(function handleFailure(xhr){
           console.log("Unable to communicate", xhr);
@@ -123,7 +125,7 @@
     }
     else {
         // Reversing order of array
-        list_Thoughts.reverse();
+        // list_Thoughts.reverse();
         // Looping through array
         list_Thoughts.forEach(function loopArray(thought){
           console.log(thought);

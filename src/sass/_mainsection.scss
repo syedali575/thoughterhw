@@ -1,10 +1,24 @@
 main#recent {
 
 h3 {
-  font-size: 5em;
+  font-size: 1.2em;
+}
+ul {
+  padding-left: 0px;
 }
 
+ul li {
+  list-style: none;
+}
 
+.panel-heading {
+  font-size: .7em;
+  line-height: 3px;
+}
+
+.panel-body {
+  line-height: 5px;
+}
 
 
 }

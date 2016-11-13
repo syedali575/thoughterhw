@@ -1,11 +1,11 @@
 (function(){
-"use strict";
+  "use strict";
 
-window.thoughter = window.thoughter || {};
+  window.thoughter = window.thoughter || {};
 
   // console.log("I am in the Thoughter HTML");
 
-// To switch between views of recent thoughts and new thought section.
+  // To switch between views of recent thoughts and new thought section.
 
 
   $("main").hide();
@@ -24,5 +24,5 @@ window.thoughter = window.thoughter || {};
 
   // what view should i start at?
 
-// End of iife
-  })();
+  // End of iife
+})();

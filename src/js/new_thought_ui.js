@@ -12,10 +12,10 @@
     window.thoughter.createNewThought(thought);
 
     var recent = $(window.location.hash);
-
+    
     $("main").show();
     recent.hide();
-    
+
   });
 
 
