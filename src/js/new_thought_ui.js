@@ -13,6 +13,7 @@
 
     var recent = $(window.location.hash);
 
+    window.thoughter.recentThought();
     $("main").show();
     recent.hide();
 

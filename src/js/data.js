@@ -52,7 +52,7 @@
       method: "GET",
       dataType: "json",
       data: {
-        filter: {"limit": 5, "order": "createTime DESC"
+        filter: {"limit": 20, "order": "createTime DESC"
       }
     },
   })
@@ -68,6 +68,7 @@
 }
 
 
+window.thoughter.recentThought();
 
 
 

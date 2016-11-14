@@ -7,22 +7,20 @@
 
   // To switch between views of recent thoughts and new thought section.
 
-
-  $("main").hide();
-
-  $(window).on("hashchange" ,function currentView(event){
-
-    var theElement = $(window.location.hash);
+  function showCurrentView(event){
+    var id = window.location.hash || "#new";
 
     $("main").hide();
-    theElement.show();
+    $(id).show();
 
-    $("nav li").removeClass("active");
-    $('[href="' + window.location.hash + '"]').addClass("active");
+  }
 
-  });
+  $(window).on("hashchange", showCurrentView);
 
-  // what view should i start at?
+  showCurrentView();
+
+
+
 
   // End of iife
 })();

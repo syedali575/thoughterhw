@@ -42,6 +42,7 @@
   }
 
 
+  window.thoughter.recentThought();
 
   //End of iife
 })();
