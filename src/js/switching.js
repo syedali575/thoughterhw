@@ -15,7 +15,7 @@
 
   }
 
-  $(window).on("hashchange", showCurrentView);
+  $(window).on("hashchange");
 
   showCurrentView();
 

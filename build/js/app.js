@@ -52,7 +52,7 @@
       method: "GET",
       dataType: "json",
       data: {
-        filter: {"limit": 5, "order": "createTime DESC"
+        filter: {"limit": 20, "order": "createTime DESC"
       }
     },
   })
@@ -68,6 +68,7 @@
 }
 
 
+window.thoughter.recentThought();
 
 
 
@@ -89,6 +90,7 @@
 
     var recent = $(window.location.hash);
 
+    window.thoughter.recentThought();
     $("main").show();
     recent.hide();
 
@@ -146,6 +148,7 @@
   }
 
 
+  window.thoughter.recentThought();
 
   //End of iife
 })();
@@ -159,22 +162,20 @@
 
   // To switch between views of recent thoughts and new thought section.
 
-
-  $("main").hide();
-
-  $(window).on("hashchange" ,function currentView(event){
-
-    var theElement = $(window.location.hash);
+  function showCurrentView(event){
+    var id = window.location.hash || "#new";
 
     $("main").hide();
-    theElement.show();
+    $(id).show();
 
-    $("nav li").removeClass("active");
-    $('[href="' + window.location.hash + '"]').addClass("active");
+  }
 
-  });
+  $(window).on("hashchange");
 
-  // what view should i start at?
+  showCurrentView();
+
+
+
 
   // End of iife
 })();
