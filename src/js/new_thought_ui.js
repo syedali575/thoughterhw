@@ -4,20 +4,17 @@
 
 
 
-  $(".yellow").on("submit", function newThoughts(event){
+  $(".sharethought").on("submit", function newThoughts(event){
     event.preventDefault();
-    /// Acquiring new thought from form
+
+    // Acquiring new thought from form
     var thought =$(".incoming").val();
-    console.log(thought);
-    window.thoughter.createNewThought(thought);
 
-    var recent = $(window.location.hash);
-
-    window.thoughter.recentThought();
-    $("main").show();
-    recent.hide();
-
-
+    // Executing createNewThought function in data to make Ajax call
+    window.thoughter.createNewThought(thought)
+    .done(function changeView(){
+      window.location.hash = "#recent";
+    });
 
   });
 

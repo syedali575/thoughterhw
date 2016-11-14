@@ -7,17 +7,22 @@
 
   // To switch between views of recent thoughts and new thought section.
 
-  function showCurrentView(event){
+  function showCurrentView(){
     var id = window.location.hash || "#new";
 
     $("main").hide();
     $(id).show();
 
+      if (window.location.hash === "#recent") {
+        window.thoughter.recentThought();
+      }
   }
 
-  $(window).on("hashchange");
+  $(document).ready(function pageLoad(){
+    $(window).on("hashchange", showCurrentView);
+    showCurrentView();
+  });
 
-  showCurrentView();
 
 
 

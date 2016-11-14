@@ -58,7 +58,6 @@
   })
   .done(function handleSuccess(data){
     console.log("It worked", data);
-    // console.log(window.thoughter.createNewThought);
     window.thoughter.showRecentThoughts(data);
 
   })
@@ -68,7 +67,7 @@
 }
 
 
-window.thoughter.recentThought();
+// window.thoughter.recentThought();
 
 
 
