@@ -1,13 +1,24 @@
-main#recent h3 {
+main {
+  margin: 0 20px 0 20px; }
+  main ul {
+    padding-left: 0px; }
+  main ul li {
+    list-style: none; }
+  main .panel-heading {
+    font-size: .7em;
+    line-height: 3px; }
+  main .panel-body {
+    line-height: 5px; }
+
+form {
+  width: 70%; }
+  form aside {
+    margin-left: 20px; }
+
+nav a {
   font-size: 1.2em; }
-main#recent ul {
-  padding-left: 0px; }
-main#recent ul li {
-  list-style: none; }
-main#recent .panel-heading {
-  font-size: .7em;
-  line-height: 3px; }
-main#recent .panel-body {
-  line-height: 5px; }
+
+body {
+  background-color: #f6f5e7; }
 
 /*# sourceMappingURL=styles.css.map */

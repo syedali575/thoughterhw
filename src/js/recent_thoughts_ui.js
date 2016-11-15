@@ -15,6 +15,10 @@
       return;
     }
     else {
+      // delete existing recent thoughts li prior to looping
+      $("#recent ul")
+      .html("");
+
       // Looping through array
       list_Thoughts.forEach(function loopArray(thought){
 
@@ -26,14 +30,10 @@
           '</li>' +
           '<li class="panel-body">' +
           'Thought: ' + thought.content +
-          '</li>'
-        );
-      });
+          '</li>');
+        });
+      }
     }
-  }
-
-
-  // window.thoughter.recentThought();
 
   //End of iife
 })();

@@ -7,11 +7,6 @@
   window.thoughter.recentThought = recentThought;
 
 
-  console.log("I am in data.js");
-
-
-
-
   /**
   *Receives string of new thought from new_thought_ui
   *and makes an ajax call to post new thought.
@@ -58,7 +53,6 @@
   })
   .done(function handleSuccess(data){
     console.log("It worked", data);
-    // console.log(window.thoughter.createNewThought);
     window.thoughter.showRecentThoughts(data);
 
   })
@@ -68,7 +62,7 @@
 }
 
 
-window.thoughter.recentThought();
+// window.thoughter.recentThought();
 
 
 
@@ -81,20 +75,17 @@ window.thoughter.recentThought();
 
 
 
-  $(".yellow").on("submit", function newThoughts(event){
+  $(".sharethought").on("submit", function newThoughts(event){
     event.preventDefault();
-    /// Acquiring new thought from form
+
+    // Acquiring new thought from form
     var thought =$(".incoming").val();
-    console.log(thought);
-    window.thoughter.createNewThought(thought);
 
-    var recent = $(window.location.hash);
-
-    window.thoughter.recentThought();
-    $("main").show();
-    recent.hide();
-
-
+    // Executing createNewThought function in data to make Ajax call
+    window.thoughter.createNewThought(thought)
+    .done(function changeView(){
+      window.location.hash = "#recent";
+    });
 
   });
 
@@ -110,28 +101,25 @@ window.thoughter.recentThought();
   window.thoughter.showRecentThoughts = showRecentThoughts;
 
 
-  console.log("I am clicking recent thoughts");
-
-  $(".recentSection").on("click", function shareThoughts(event){
-    window.thoughter.recentThought();
-  });
-
-
   /**
   * Appends incoming recent thoughts to recent thought section.
   * @param  {Array} list_Thoughts  An array of thought Objects
   * @return {void}
   */
   function showRecentThoughts(list_Thoughts) {
-    // what do i do if i get NO input?
+
     if(!Array.isArray(list_Thoughts)) {
       return;
     }
     else {
+      // delete existing recent thoughts li prior to looping
+      $("#recent ul")
+      .html("");
+
       // Looping through array
       list_Thoughts.forEach(function loopArray(thought){
-        console.log(thought);
 
+        // Appending recent thoughts to UL in recent main
         $("#recent ul")
         .append(
           '<li class="panel-heading">' +
@@ -139,16 +127,10 @@ window.thoughter.recentThought();
           '</li>' +
           '<li class="panel-body">' +
           'Thought: ' + thought.content +
-          '</li>'
-        );
-
-        recent === window.location.hash;
-      });
+          '</li>');
+        });
+      }
     }
-  }
-
-
-  window.thoughter.recentThought();
 
   //End of iife
 })();
@@ -162,17 +144,22 @@ window.thoughter.recentThought();
 
   // To switch between views of recent thoughts and new thought section.
 
-  function showCurrentView(event){
+  function showCurrentView(){
     var id = window.location.hash || "#new";
 
     $("main").hide();
     $(id).show();
 
+      if (window.location.hash === "#recent") {
+        window.thoughter.recentThought();
+      }
   }
 
-  $(window).on("hashchange");
+  $(document).ready(function pageLoad(){
+    $(window).on("hashchange", showCurrentView);
+    showCurrentView();
+  });
 
-  showCurrentView();
 
 
 
