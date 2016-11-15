@@ -7,11 +7,6 @@
   window.thoughter.recentThought = recentThought;
 
 
-  console.log("I am in data.js");
-
-
-
-
   /**
   *Receives string of new thought from new_thought_ui
   *and makes an ajax call to post new thought.
