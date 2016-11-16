@@ -6,7 +6,7 @@
   window.thoughter.createNewThought = createNewThought;
   window.thoughter.recentThought = recentThought;
 
-
+  
   /**
   *Receives string of new thought from new_thought_ui
   *and makes an ajax call to post new thought.
@@ -92,7 +92,7 @@
 
 
 
-// End of iife
+  // End of iife
 })();
 
 (function(){
@@ -132,8 +132,8 @@
       }
     }
 
-  //End of iife
-})();
+    //End of iife
+  })();
 
 (function(){
   "use strict";
@@ -146,13 +146,13 @@
 
   function showCurrentView(){
     var id = window.location.hash || "#new";
-
+    
     $("main").hide();
     $(id).show();
 
-      if (window.location.hash === "#recent") {
-        window.thoughter.recentThought();
-      }
+    if (window.location.hash === "#recent") {
+      window.thoughter.recentThought();
+    }
   }
 
   $(document).ready(function pageLoad(){

@@ -35,5 +35,5 @@
       }
     }
 
-  //End of iife
-})();
+    //End of iife
+  })();

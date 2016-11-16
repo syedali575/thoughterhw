@@ -9,13 +9,13 @@
 
   function showCurrentView(){
     var id = window.location.hash || "#new";
-
+    
     $("main").hide();
     $(id).show();
 
-      if (window.location.hash === "#recent") {
-        window.thoughter.recentThought();
-      }
+    if (window.location.hash === "#recent") {
+      window.thoughter.recentThought();
+    }
   }
 
   $(document).ready(function pageLoad(){
