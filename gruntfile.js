@@ -1,6 +1,5 @@
 module.exports = function(grunt){
 
-  'use strrict';
 
   grunt.initConfig({
     /// all of your Task configuration goes in here
@@ -43,25 +42,26 @@ module.exports = function(grunt){
           files: [
               {
                 expand: true,
-                cwd: 'src',
+                cwd: 'src/',
                 src: ['index.html'],
                 dest:  'build/'
               }
           ]
-        }
+        },
 
-    },
+
 
       vendorjs: {
         files: [
           {
             expand: true,
-            cwd: 'node_modules/jquery/dist/',
+            cwd: 'node_modules/jquery/dist',
             src: ['jquery.js'],
             dest: 'build/js'
           }
         ]
-      },
+      }
+    },
 
       concat: {
         js: {
