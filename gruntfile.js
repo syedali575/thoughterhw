@@ -1,5 +1,6 @@
 module.exports = function(grunt){
 
+  "use strict";
 
   grunt.initConfig({
     /// all of your Task configuration goes in here
@@ -106,8 +107,8 @@ module.exports = function(grunt){
 //
 //  // I need to add test to default
 
-  grunt.registerTask('test', ['connect', 'mocha']); // add jshint back
+  grunt.registerTask('test', ['connect', 'mocha']);//'jshint',
 
-  grunt.registerTask('default', ['clean','sass','copy', 'concat']);
+  grunt.registerTask('default', ['clean','sass','copy', 'concat']); //
 
 };

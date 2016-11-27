@@ -6,12 +6,12 @@
   window.thoughter.createNewThought = createNewThought;
   window.thoughter.recentThought = recentThought;
 
-  
+
   /**
   *Receives string of new thought from new_thought_ui
   *and makes an ajax call to post new thought.
   *@param {string} newThought that user like to share
-  *@return {Object} content or provides fail message.
+  *@return {Promise} content or provides fail message.
   */
 
   function createNewThought(newThought) {
@@ -48,9 +48,9 @@
       dataType: "json",
       data: {
         filter: {"limit": 20, "order": "createTime DESC"
-      }
-    },
-  })
+        }
+      },
+    })
   .done(function handleSuccess(data){
     console.log("It worked", data);
     window.thoughter.showRecentThoughts(data);
