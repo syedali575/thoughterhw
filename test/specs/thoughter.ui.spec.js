@@ -27,11 +27,12 @@
           {id:1, content:"hello", createTime: "2016-11-07T12:00:00.000Z"},
           {id:2, content:"Whats up", createTime: "2016-11-07T12:00:00.000Z"}
         ]);
-        expect(result).to.be(undefined);
+        expect(result).to.be.a("undefined");
+        expect($("#fixture li").length).to.equal(4);
 
-        expect($("#fixture li").length).to.equal(2);
         $('#fixture li').each(function(li) {
-          // expect the content of this li to be...?
+
+
         });
       });
 
@@ -39,14 +40,14 @@
 
       it('should have NO li\'s if I give it an empty array', function functionName() {
         var result = window.thoughter.showRecentThoughts([]);
+        console.log(result);
         expect($("#fixture li").length).to.equal(0);
       });
 
 
-
-
       it('should have NO li\'s if I give it NO args', function functionName() {
         var result = window.thoughter.showRecentThoughts();
+        console.log(result);
         expect($("fixture li").length).to.equal(0);
       });
     });

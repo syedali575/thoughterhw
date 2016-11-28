@@ -21,20 +21,16 @@
         xhrPromise
         .done(function handleSuccess(data){
           expect(data).to.be.an.instanceof(Array);
-          expect(data.length).to.equal(20);
+          expect(data).to.have.length.of.at.most(20);
           expect(data[0]).to.be.an.instanceof(Object);
           expect(data[0].content).to.be.a("string");
-
-
-
+          expect(data[0].id).to.be.a("number");
           doneCallback();
         })
 
         .fail(function handleFailure(){
           doneCallback("Ajax call to get recent thought, failed");
         });
-
-
       });
     });
 
@@ -50,7 +46,6 @@
         expect(result.done).to.be.a("function");
         expect(result.fail).to.be.a("function");
 
-
         result
         .done(function handleSuccess(data){
           expect(data).to.be.an("object");
@@ -64,13 +59,8 @@
         .fail(function handleFailure(){
           doneCallback("Ajax call add new thought, failed");
         });
-
       });
     });
-
-
-
-
     //=====================================================================
 
     // End data module
